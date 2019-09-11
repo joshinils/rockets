@@ -12,9 +12,13 @@ endif(UNIX)
 
 add_executable("${PROJECT_NAME}" 
 	"main.cpp"
+	"Rocket.cpp"
+	"Rocket.h"
 	"Rockets.h"
 	"Rockets.cpp"
 	"pge.cpp"
+	"plane/Plane.h"
+	"plane/Plane.cpp"
 )
 
 include_directories(olcPixelGameEngine)
