@@ -3,10 +3,12 @@
 
 bool Aether::OnUserCreate()
 {
+	// olc::PixelGameEngine::SetPixelMode(olc::Pixel::ALPHA);
+
 	Plane::OnUserCreate();
 	std::cout << __FUNCTION__ << std::endl;
 
-	for (size_t i = 0; i < 1; i++)
+	for (size_t i = 0; i < 100; i++)
 	{
 		Rocket r;
 		r.accelerate(Vec2d((rand()%1000)/10.0 -50, (rand()%1000)/10.0 -50));
@@ -18,9 +20,7 @@ bool Aether::OnUserCreate()
 
 bool Aether::OnUserUpdate(float fElapsedTime)
 {
-	Plane::OnUserUpdate(fElapsedTime);
-
-	//Clear(olc::BLACK);
+	Plane::OnUserUpdate(fElapsedTime);//Clear(olc::BLACK);
 
 	double minx = minX();
 	double miny = minY();
@@ -36,7 +36,7 @@ bool Aether::OnUserUpdate(float fElapsedTime)
 			double y = miny + (maxy*j - miny * j) / olc::PixelGameEngine::ScreenHeight();
 		}
 	}
-	/**
+	/**/
 
 	for (size_t i = 0; i < aether.size(); i++)
 	{
