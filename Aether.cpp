@@ -19,9 +19,9 @@ bool Aether::OnUserCreate()
 bool Aether::OnUserUpdate(float fElapsedTime)
 {
 	Plane::OnUserUpdate(fElapsedTime);
-	std::cout << __FUNCTION__ << std::endl;
 
-	Clear(olc::BLACK);
+	//Clear(olc::BLACK);
+
 	double minx = minX();
 	double miny = minY();
 	double maxx = maxX();
@@ -36,7 +36,7 @@ bool Aether::OnUserUpdate(float fElapsedTime)
 			double y = miny + (maxy*j - miny * j) / olc::PixelGameEngine::ScreenHeight();
 		}
 	}
-	/**/
+	/**
 
 	for (size_t i = 0; i < aether.size(); i++)
 	{

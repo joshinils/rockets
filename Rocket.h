@@ -31,12 +31,12 @@ public:
 	{
 		double cosTheta = (double)(operator* (other) / (this->length() * other.length()));
 
-		return acosf(cosTheta);
+		return acos(cosTheta);
 	}
 
 	inline double length() const
 	{
-		return sqrtf(x*x + y*y);
+		return sqrt(x*x + y*y);
 	}
 
 	// dot product
