@@ -1,5 +1,5 @@
 #include "Rocket.h"
-#include "Rockets.h"
+#include "Aether.h"
 
 void Rocket::draw(olc::PixelGameEngine* pge)
 {
@@ -14,8 +14,8 @@ void Rocket::draw(olc::PixelGameEngine* pge)
 
 	olc::Pixel fillCol(255, 255, 255, 255);//10 + 10 * int(_alive));
 	olc::Pixel strokeCol(255, 255, 255, 255);//5 + 5 * int(_alive));
-	static_cast<Rockets*>(pge)->FillTriangle(front.x, front.y, backL.x, backL.y, backR.x, backR.y, fillCol);
-	static_cast<Rockets*>(pge)->DrawTriangle(front.x, front.y, backL.x, backL.y, backR.x, backR.y, strokeCol);
+	static_cast<Aether*>(pge)->FillTriangle(front.x, front.y, backL.x, backL.y, backR.x, backR.y, fillCol);
+	static_cast<Aether*>(pge)->DrawTriangle(front.x, front.y, backL.x, backL.y, backR.x, backR.y, strokeCol);
 
 	strokeCol = olc::WHITE;
 	strokeCol.a = 200;
@@ -31,5 +31,5 @@ void Rocket::draw(olc::PixelGameEngine* pge)
 		strokeCol.g = 0;
 		strokeCol.b = 0;
 	}
-	static_cast<Rockets*>(pge)->FillCircle(_pos.x, _pos.y, size / 3, strokeCol);
+	static_cast<Aether*>(pge)->FillCircle(_pos.x, _pos.y, size / 3, strokeCol);
 }

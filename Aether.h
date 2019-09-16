@@ -1,21 +1,21 @@
-#ifndef ROCKETS_H
-#define ROCKETS_H
+#ifndef AETHER_H
+#define AETHER_H
 
 #include "olcPixelGameEngine/olcPixelGameEngine.h"
 #include "plane/Plane.h"
 #include "Rocket.h"
 
 class Rocket;
-class Rockets
+class Aether
 	: public Plane
 {
 
 private:
-	std::vector<Rocket> rockets;
+	std::vector<Rocket> aether;
 
 public:
-	Rockets() = default;
-	~Rockets() = default;
+	Aether() = default;
+	~Aether() = default;
 
 	virtual bool OnUserCreate();
 	virtual bool OnUserUpdate(float fElapsedTime);
@@ -24,4 +24,4 @@ private:
 
 };
 
-#endif // ROCKETS_H
+#endif // AETHER_H

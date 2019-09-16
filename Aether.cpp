@@ -1,7 +1,7 @@
-#include "Rockets.h"
+#include "Aether.h"
 #include <stdlib.h>
 
-bool Rockets::OnUserCreate()
+bool Aether::OnUserCreate()
 {
 	Plane::OnUserCreate();
 	std::cout << __FUNCTION__ << std::endl;
@@ -10,13 +10,13 @@ bool Rockets::OnUserCreate()
 	{
 		Rocket r;
 		r.accelerate(vec2d((rand()%1000)/10.0 -50, (rand()%1000)/10.0 -50));
-		rockets.push_back(r);
+		aether.push_back(r);
 	}
 
 	return true;
 }
 
-bool Rockets::OnUserUpdate(float fElapsedTime)
+bool Aether::OnUserUpdate(float fElapsedTime)
 {
 	Plane::OnUserUpdate(fElapsedTime);
 	std::cout << __FUNCTION__ << std::endl;
@@ -27,6 +27,7 @@ bool Rockets::OnUserUpdate(float fElapsedTime)
 	double maxx = maxX();
 	double maxy = maxY();
 
+	/**
 	for (size_t i = 0; i < olc::PixelGameEngine::ScreenWidth(); i++)
 	{
 		for (size_t j = 0; j < olc::PixelGameEngine::ScreenHeight(); j++)
@@ -35,12 +36,24 @@ bool Rockets::OnUserUpdate(float fElapsedTime)
 			double y = miny + (maxy*j - miny * j) / olc::PixelGameEngine::ScreenHeight();
 		}
 	}
+	/**/
 
-	for (size_t i = 0; i < rockets.size(); i++)
+	for (size_t i = 0; i < aether.size(); i++)
 	{
-		rockets[i].move(fElapsedTime);
-		rockets[i].draw(this);
+		aether[i].move(fElapsedTime);
+		aether[i].draw(this);
 	}
+
+	/**
+	for (size_t i = 0; i < 1000; i++)
+	{
+		double x1 = minx + (rand()%1000)/1000.0 * (maxx-minx);
+		double x2 = minx + (rand()%1000)/1000.0 * (maxx-minx);
+		double y1 = miny + (rand()%1000)/1000.0 * (maxy-miny);
+		double y2 = miny + (rand()%1000)/1000.0 * (maxy-miny);
+		DrawLine(x1, y1, x2, y2);
+	}
+	/**/
 
 	return true;
 }
