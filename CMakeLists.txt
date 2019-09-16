@@ -19,6 +19,8 @@ add_executable("${PROJECT_NAME}"
 	"pge.cpp"
 	"plane/Plane.h"
 	"plane/Plane.cpp"
+	"plane/Vec2d.h"
+	"plane/Vec2d.cpp"
 )
 
 include_directories(olcPixelGameEngine)

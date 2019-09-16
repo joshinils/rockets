@@ -3,13 +3,13 @@
 
 void Rocket::draw(olc::PixelGameEngine* pge)
 {
-	vec2d velN = _vel;
+	Vec2d velN = _vel;
 	velN.normalize();
 
-	vec2d front = _pos + velN * size;
-	vec2d backR(_pos.x + (-0.5		*velN.x + 0.8660254*velN.y)*size / 2,
+	Vec2d front = _pos + velN * size;
+	Vec2d backR(_pos.x + (-0.5		*velN.x + 0.8660254*velN.y)*size / 2,
 				_pos.y + (-0.8660254*velN.x - 0.5	   *velN.y)*size / 2);
-	vec2d backL(_pos.x + (-0.5		*velN.x - 0.8660254*velN.y)*size / 2,
+	Vec2d backL(_pos.x + (-0.5		*velN.x - 0.8660254*velN.y)*size / 2,
 				_pos.y + (+0.8660254*velN.x - 0.5	   *velN.y)*size / 2);
 
 	olc::Pixel fillCol(255, 255, 255, 255);//10 + 10 * int(_alive));

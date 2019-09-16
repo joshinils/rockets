@@ -9,7 +9,7 @@ bool Aether::OnUserCreate()
 	for (size_t i = 0; i < 1; i++)
 	{
 		Rocket r;
-		r.accelerate(vec2d((rand()%1000)/10.0 -50, (rand()%1000)/10.0 -50));
+		r.accelerate(Vec2d((rand()%1000)/10.0 -50, (rand()%1000)/10.0 -50));
 		aether.push_back(r);
 	}
 
