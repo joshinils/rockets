@@ -12,14 +12,15 @@ private:
 	double _width;
 	double _height;
 
+	Vec2d _center;
 public:
 	olc::Pixel color = {0xD7BA89};
 
 	Wall(Vec2d const& origin, double width, double height);
-
 	~Wall() = default;
 
 	void draw(olc::PixelGameEngine* const pge);
+	double distanceTo(Vec2d const& p);
 };
 
 
