@@ -1,7 +1,7 @@
 #include "Rocket.h"
 #include "Aether.h"
 
-void Rocket::draw(olc::PixelGameEngine* pge)
+void Rocket::draw(olc::PixelGameEngine* const pge)
 {
 	Vec2d velN = _vel;
 	velN.normalize();

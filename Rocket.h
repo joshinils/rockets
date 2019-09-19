@@ -4,8 +4,9 @@
 #include <iostream>
 #include "Aether.h"
 #include "plane/Vec2d.h"
+#include "Drawable.h"
 
-class Rocket
+class Rocket : public Drawable
 {
 private:
 	Vec2d _pos;
@@ -16,7 +17,10 @@ private:
 	const double _friction = 0.9;
 
 public:
-	Rocket() = default;
+	Rocket()
+		: Drawable(Drawable::zIndex::foreground)
+	{ }
+
 	~Rocket() = default;
 
 	void accelerate(Vec2d change)
@@ -37,7 +41,7 @@ public:
 	}
 
 	double size=15;
-	void draw(olc::PixelGameEngine* pge);
+	void draw(olc::PixelGameEngine* const pge);
 };
 
 #endif // ROCKET_H

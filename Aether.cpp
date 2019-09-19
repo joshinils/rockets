@@ -1,5 +1,16 @@
 #include "Aether.h"
 #include <stdlib.h>
+#include "Rocket.h"
+#include "Wall.h"
+
+Aether::~Aether()
+{
+	for (size_t i = 0; i < world.size(); i++)
+	{
+		delete world[i];
+		world[i] = nullptr;
+	}
+}
 
 bool Aether::OnUserCreate()
 {
@@ -10,10 +21,13 @@ bool Aether::OnUserCreate()
 
 	for (size_t i = 0; i < 100; i++)
 	{
-		Rocket r;
-		r.accelerate(Vec2d((rand()%1000)/10.0 -50, (rand()%1000)/10.0 -50));
-		aether.push_back(r);
+		Rocket* r = new Rocket;
+		r->accelerate(Vec2d((rand()%1000)/10.0 -50, (rand()%1000)/10.0 -50));
+		world.push_back(r);
 	}
+
+	Wall* w = new Wall(Vec2d(0,0),10,10);
+	world.push_back(w);
 
 	return true;
 }
@@ -22,26 +36,24 @@ bool Aether::OnUserUpdate(float fElapsedTime)
 {
 	Plane::OnUserUpdate(fElapsedTime);//Clear(olc::BLACK);
 
+	/**/
 	double minx = minX();
 	double miny = minY();
 	double maxx = maxX();
 	double maxy = maxY();
 
-	/**
-	for (size_t i = 0; i < olc::PixelGameEngine::ScreenWidth(); i++)
+	std::sort(std::begin(world), std::end(world), [](const Drawable* const a, const Drawable* const b) -> bool
 	{
-		for (size_t j = 0; j < olc::PixelGameEngine::ScreenHeight(); j++)
-		{
-			double x = minx + (maxx*i - minx * i) / olc::PixelGameEngine::ScreenWidth();
-			double y = miny + (maxy*j - miny * j) / olc::PixelGameEngine::ScreenHeight();
-		}
-	}
-	/**/
+		return a->getZIndex() < b->getZIndex();
+	});
 
-	for (size_t i = 0; i < aether.size(); i++)
+	for (size_t i = 0; i < world.size(); i++)
 	{
-		aether[i].move(fElapsedTime);
-		aether[i].draw(this);
+		if(typeid(*world[i]) == typeid(Rocket) )
+		{
+			static_cast<Rocket*>(world[i])->move(fElapsedTime);
+		}
+		world[i]->draw(this);
 	}
 
 	/**

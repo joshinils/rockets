@@ -21,6 +21,14 @@ add_executable("${PROJECT_NAME}"
 	"plane/Plane.cpp"
 	"plane/Vec2d.h"
 	"plane/Vec2d.cpp"
+	"Wall.h"
+	"Wall.cpp"
+	"Goal.h"
+	"Goal.cpp"
+	"Medium.h"
+	"Medium.cpp"
+	"Drawable.h"
+	"Drawable.cpp"
 )
 
 include_directories(olcPixelGameEngine)

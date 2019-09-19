@@ -3,7 +3,7 @@
 
 #include "olcPixelGameEngine/olcPixelGameEngine.h"
 #include "plane/Plane.h"
-#include "Rocket.h"
+#include "Drawable.h"
 
 class Rocket;
 class Aether
@@ -11,11 +11,11 @@ class Aether
 {
 
 private:
-	std::vector<Rocket> aether;
+	std::vector<Drawable*> world;
 
 public:
 	Aether() = default;
-	~Aether() = default;
+	~Aether();
 
 	virtual bool OnUserCreate();
 	virtual bool OnUserUpdate(float fElapsedTime);
